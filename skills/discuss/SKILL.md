@@ -1,21 +1,22 @@
 ---
 name: discuss
-description: Collaborative discussion workflow where Agent and User exchange questions and answers inside a single Markdown document. Use when the user wants document-based cross-questioning, adds comments or answers to planning docs, or asks to continue this planning method. This is a discussion-first workflow, not authorization to implement application code.
+description: Collaborative discussion workflow where Agent and User exchange questions and answers in a discussion doc, with a decisions doc always present. Use when the user wants document-based cross-questioning, adds comments or answers to planning docs, or asks to continue this planning method. This is a discussion-first workflow, not authorization to implement application code.
 ---
 
-# Discuss
+# Discuss to design
 
-Help the user reason through a problem by exchanging questions and answers inside the same document. The user may challenge assumptions, request first-principles explanations, make decisions, or reserve topics for themselves. Progress toward a coherent soultion without treating every question as a request to build.
+Help the user reason through a design by exchanging questions and answers in the discussion document. The user may challenge assumptions, request first-principles explanations, make decisions, or reserve topics for themselves. Progress toward a coherent design without treating every question as a request to build.
 
-## One primary document — a second only when needed
+## Two documents, always
 
-The primary and always-present document is:
+Always create both at the start of a discussion, in the same folder, and keep them linked:
 
 - `<topic>-discussion.md`: active open points and their conversations.
+- `<topic>-decisions.md`: closed decisions only.
 
-Do not create a second document upfront. Create a second document — `<topic>-decisions.md` — only when the user explicitly asks for agreed decisions to be recorded, or when enough points have closed that a decisions record is clearly useful. That document captures only closed decisions. It is never a skeleton, never a plan for open items, and never a duplicate of the discussion.
+Create the decisions file even if nothing is agreed yet. Until the first close, it is a short header plus a link to the discussion and a line that no decisions are closed. It is never a plan for open items and never a duplicate of the discussion.
 
-When a second document exists, keep both linked. Follow existing folder conventions rather than assuming a particular repository or stack.
+Follow existing folder conventions rather than assuming a particular repository or stack.
 
 ## Begin with evidence
 
@@ -52,19 +53,19 @@ Messages such as "updated," "answered," and "done" mean read the document again,
 For each new answer:
 
 - **Question or challenge:** append a direct answer and keep the point open. Do not keep restating already-settled choices.
-- **Explicit agreement:** remove the closed section from the discussion. If a decisions doc exists, add the agreed decision there. If not, note it is ready to move whenever the user asks. Approval of one paragraph does not approve every proposal in the section.
-- **Partial agreement:** remove the settled part from the discussion and record it if a decisions doc exists; append what remains unresolved and keep that part open. Do not label an entire topic closed prematurely.
-- **Closed:** consolidate the decision, then remove the closed section from the discussion. Do not create a decisions doc proactively — only do so if the user has asked for it.
-- **Deferred / "backlog":** mark as deferred in the discussion. If a decisions doc exists, record it under a deferred section there; remove from active discussion.
-- **"I will decide" / "not for agent":** stop investigating or proposing on that topic. Leave it user-owned; if asked to move it to the decisions doc, supply a structure with clearly unfilled values and remove the discussion section.
+- **Explicit agreement:** remove the closed section from the discussion and add the agreed decision to the decisions doc. Approval of one paragraph does not approve every proposal in the section.
+- **Partial agreement:** remove the settled part from the discussion, record it in the decisions doc, and keep the unresolved remainder open. Do not label an entire topic closed prematurely.
+- **Closed:** consolidate the decision into the decisions doc, then remove the closed section from the discussion.
+- **Deferred / "backlog":** record it under a deferred section in the decisions doc; remove it from active discussion.
+- **"I will decide" / "not for agent":** stop investigating or proposing on that topic. Move it to the decisions doc with a clearly labeled unfilled placeholder, and remove the discussion section.
 
 If a user closes a topic without answering every subquestion, honor the closure. Record only the explicit decision; put genuinely necessary remaining details into a clearly labeled user-owned placeholder rather than silently choosing them or reopening the discussion.
 
 Preserve point numbers where prior replies refer to them. If all points are closed, leave a short notice; do not manufacture more questions to keep planning active.
 
-## Maintain the decisions doc (only when it exists)
+## Maintain the decisions doc
 
-Write closed decisions only — no open items, no skeletons, no placeholders for undecided things. Scale structure to what has actually been agreed; no predefined sections.
+Write closed decisions only — no open items and no outline of topics still in discussion. Scale structure to what has actually been agreed; no predefined sections. An empty starter (header, link to the discussion, "No closed decisions yet.") is required until the first close. User-owned blanks are allowed only after an explicit "I will decide".
 
 When promoting a decision, write only what was explicitly agreed. Remove conflicting pending text. Avoid accumulating "latest decisions" appendices that contradict earlier entries.
 
@@ -72,7 +73,7 @@ Do not invent values the user reserved for themselves. A closed discussion does 
 
 ## Scope and finishing
 
-Document planning and agreed solution only unless the user separately requests implementation. Do not edit application code, migrations, dependencies, or deploy resources as a consequence of final approval.
+Document planning and agreed design only unless the user separately requests implementation. Do not edit application code, migrations, dependencies, or deploy resources as a consequence of design approval.
 
 Do not delete historical documents merely because this skill is active. When explicitly asked to clean docs, preserve unique useful material first and repair references after removing redundant files.
 
